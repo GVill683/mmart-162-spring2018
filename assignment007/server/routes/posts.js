@@ -5,6 +5,7 @@ module.exports = {
         console.log('\n\n\n\n')
         res.status(200).send(req.store.posts)
     },
+    
     getPost(req, res) {
         const postID = req.params.postId
         if (postID >= req.store.posts.length) {
@@ -16,6 +17,9 @@ module.exports = {
     addPost(req, res) {
         console.log(req.body)
         let newPost = req.body
+        console.log('------------------')
+        console.log(newPost)
+        console.log('------------------')
         let postID = req.store.posts.length
         req.store.posts.push(newPost)
         res.status(201).send({postId: postID})
